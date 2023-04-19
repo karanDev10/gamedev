@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my-Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Ubuntu:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="sboxpaa">
+            <label for="" class="entername">Enter your name!</label>
+            <input id="input" type="text">
+        </div>
+        <br>
+        <div class="twobtn">
+            <button id="start" class="twobtn1" onclick="myfunc()">start</button>
+            <button id="cancel" class="twobtn2" onclick="cancel()">cancel</button>
+        </div>
+
+    </div>
+    <div class="gamebar">
+        <h1 class="heading">Stone Paper Scissiors</h1>
+        <h3 class="smallheading" id="demo">All the best!</h3>
+        <div class="container">
+            <div class="Scontainer">
+                <!--second section -->
+                <div class="section1">
+                    <div class="info">
+                        <h3 id="hName">You</h3><span id="playerScore"></span>
+                    </div>
+                    <div class="playerScreen">
+                        <i class="fas fa-hand-rock"></i>
+                    </div>
+                </div>
+                <!--second section-->
+                <div class="section1">
+                    <div class="info">
+                        <h3>Computer : </h3><span id="computerScore"></span>
+                    </div>
+                    <div class="computerScreen">
+                        <i class="fas fa-hand-scissors"></i>
+                    </div>
+                </div>
+            </div>
+            <h2 class="demo1">choose one from below!!</h2>
+            <div class="selection">
+                <div class="buttonsBottom">
+                    <button class="fas fa-hand-rock" id="rock"></button>
+                    <button class="fas fa-hand-paper" id="paper"></button>
+                    <button class="fas fa-hand-scissors" id="scissors"></button>
+                </div>
+                <div class="playagain">
+                    <button id="PLAYAGAIN" class="play_Again" onclick="restart()">Play Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function myfunc() {
+            const inputs = document.getElementById("input").value;
+            if (inputs === "") {
+                document.getElementById('hName').innerHTML = "you : ";
+                document.querySelector('.box').style.display = 'none';
+                document.querySelector('.gamebar').style.display = 'contents';
+            }
+            else {
+                inputs.value = "";
+                document.getElementById('hName').innerHTML = inputs + " : ";
+                document.querySelector('.box').style.display = 'none';
+                document.querySelector('.gamebar').style.display = 'contents';
+            }
+            return;
+        }
+        function cancel() {
+
+            document.querySelector('.box').style.display = 'none';
+            document.querySelector('.gamebar').style.display = 'contents';
+        }
+        var audio1 = new Audio('sound/green.mp3');
+        var audio2 = new Audio('sound/wrong.mp3');
+        var audio3 = new Audio('sound/yellow.mp3');
+
+
+        let computerScore = 1;
+        let playerScore = 1;
+        const pScore = document.getElementById('playerScore');
+        const cScore = document.getElementById('computerScore');
+        const buten = document.querySelectorAll('.buttonsBottom button');
+        const playerScreen = document.querySelector(".playerScreen i");
+        const computerScreen = document.querySelector('.computerScreen i');
+
+        const play = document.querySelector('.playerScreen');
+
+        const randomClasses = ["fas fa-hand-rock", "fas fa-hand-paper", "fas fa-hand-scissors"];
+
+        const text1 = document.getElementById('demo');
+        const text2 = document.querySelector('.demo1');
+        const hidu = document.getElementsByClassName('buttonsBottom')[0];
+        const btnPlayAgain = document.getElementsByClassName('playagain')[0]
+        console.log(btnPlayAgain);
+        console.log("horny");
+
+        const game = () => {
+            // console.log(`computer fun= ${computerScore} player score= $
+            // {computerScore}`)
+            buten.forEach(btn => {
+
+                btn.addEventListener('click', (e) => {
+                    // console.log(`computer= ${computerScore} player score= ${computerScore}`)
+                    if (playerScore === 6) {
+                        text1.innerHTML = "Dear User Won The Game!!!";
+                        text1.style.color = 'green';
+                        pScore.innerHTML = pScore.innerHTML;
+                        cScore.innerHTML = cScore.innerHTML;
+                        audio1.play();
+                        hidu.classList.add("hide");
+                        btnPlayAgain.style.display = 'contents';
+                        return;
+                    }
+                    if (computerScore === 6) {
+                        text1.innerHTML = "You Lost!!!";
+                        text1.style.color = 'red';
+                        pScore.innerHTML = pScore.innerHTML;
+                        cScore.innerHTML = cScore.innerHTML;
+                        audio2.play();
+                        hidu.classList.add("hide");
+                        btnPlayAgain.style.display = 'contents';
+                        return;
+                    }
+
+                    let clickedBtn = e.target.className;
+                    playerScreen.className = clickedBtn;
+                    // console.log(clickedBtn);
+                    let randomNum = Math.floor(Math.random() * randomClasses.length);
+                    computerScreen.className = randomClasses[randomNum];
+                    text2.innerHTML = "NEED 5 POINTS TO WIN";
+                    // console.log(computerScreen);
+
+                    if (playerScreen.className === computerScreen.className) {
+                        console.log(`computer= ${computerScore} player score= ${playerScore}`)
+
+                        pScore.innerHTML = pScore.innerHTML;
+                        cScore.innerHTML = cScore.innerHTML;
+                        text1.innerHTML = "It's a tie play again!!";
+                        text1.style.color = 'orange';
+
+                        audio3.play();
+
+                    }
+                    else if (playerScreen.className === randomClasses[0] && computerScreen.className === randomClasses[2]) {
+                        pScore.innerHTML = playerScore;
+                        playerScore++;
+                        text1.innerHTML = "it's a win buddy!";
+                        text1.style.color = 'green';
+                        audio1.play();
+
+
+                    }
+                    else if (playerScreen.className === randomClasses[0] &&
+                        computerScreen.className === randomClasses[1]) {
+                        cScore.innerHTML = computerScore;
+                        computerScore++;
+                        text1.innerHTML = "you loosed";
+                        text1.style.color = 'red';
+                        audio2.play();
+
+                    }
+                    else if (playerScreen.className === randomClasses[1] &&
+                        computerScreen.className === randomClasses[0]) {
+                        // console.log("hi");
+                        pScore.innerHTML = playerScore;
+                        playerScore++;
+                        text1.innerHTML = "it's a win buddy!";
+                        text1.style.color = 'green';
+                        audio1.play();
+                    } else if (playerScreen.className === randomClasses[1] &&
+                        computerScreen.className === randomClasses[2]) {
+                        cScore.innerHTML = computerScore;
+                        computerScore++;
+                        text1.innerHTML = "you Loosed!";
+                        text1.style.color = 'red';
+                        audio2.play();
+                    } else if (playerScreen.className === randomClasses[2] &&
+                        computerScreen.className === randomClasses[1]) {
+                        pScore.innerHTML = playerScore;
+                        playerScore++;
+                        text1.innerHTML = "it's a win buddy!";
+                        text1.style.color = 'green';
+                        audio1.play();
+
+                    } else if (playerScreen.className === randomClasses[2] &&
+                        computerScreen.className === randomClasses[0]) {
+                        cScore.innerHTML = computerScore;
+                        computerScore++;
+                        text1.innerHTML = "you loosed";
+                        text1.style.color = 'red';
+                        audio2.play();
+
+                    }
+
+
+                });
+            });
+        }
+
+        game();
+        // computerScore = 1;
+        // playerScore = 1;
+        // const restart = document.getElementByClassName("play_Again");
+        // restart.addEventListener('click', () => {
+        // hidu.classList.remove("hide");
+        // btnPlayAgain.style.display = 'none';
+        // computerScore = 1;
+        // playerScore = 1;
+        // game();
+        // })
+        function restart() {
+            hidu.classList.remove("hide");
+            btnPlayAgain.style.display = 'none';
+            text1.innerHTML = "play";
+            computerScore = 1;
+            playerScore = 1;
+            pScore.innerHTML = '0';
+            cScore.innerHTML = '0';
+            console.log(`computer= ${computerScore} player score= $
+{computerScore}`)
+            game();
+            // computerScore = 1;
+            // playerScore = 1;
+        }
+
+
+    </script>
+
+</body>
+
+</html>
