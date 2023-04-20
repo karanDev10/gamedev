@@ -1,0 +1,225 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+
+    background-color: lightblue;
+}
+
+.smallheading {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    color: #ffff;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+}
+
+.heading {
+    align-items: center;
+    font-weight: bold;
+    margin: 10px 0px;
+    font-weight: 800;
+    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    display: flex;
+    justify-content: center;
+
+}
+
+.Scontainer {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: lightblue;
+    padding: 5px;
+
+}
+
+.section1 {
+    height: 250px;
+    background-color: white;
+    width: 250px;
+    border-radius: 16px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    background-color: #f43d3de6;
+    height: 39px;
+    align-items: center;
+    border-radius: 16px;
+    margin: 10px;
+}
+
+.playerScreen {
+    padding-left: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.computerScreen {
+    padding-left: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.playerScreen {
+    padding: 5px 5px;
+    height: 185px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.playerScreen i {
+    font-size: 130px;
+    color: yellow;
+    /* transform: rotate(130deg); */
+}
+
+.computerScreen {
+    padding: 5px 5px;
+    height: 185px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.computerScreen i {
+    font-size: 130px;
+    color: yellow;
+    /* transform: rotate(-130deg); */
+    /* color: rgb(18, 204, 217); */
+}
+
+.demo1 {
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    color: #cb7f08;
+    margin: 5px 0px;
+}
+
+.hide {
+    display: none;
+}
+
+.selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.buttonsBottom button {
+    width: 131px;
+    height: 53px;
+    font-size: 45px;
+    color: yellow;
+    border-radius: 25px;
+    background-color: blueviolet;
+    margin: 0px 4px;
+}
+
+.box {
+    height: 300px;
+    position: top;
+    background: linear-gradient(50deg, #db5151, #1e4886);
+    width: 521px;
+    position: absolute;
+    margin-left: 330px;
+    margin-top: 100px;
+    border-radius: 60px;
+
+
+}
+
+.sboxpaa {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+
+.entername {
+    font-style: oblique;
+    font-size: 28px;
+    margin: 75px 0px;
+}
+
+#input {
+    height: 36px;
+    width: 200px;
+    border-radius: 7px;
+    border: 3px solid white;
+}
+
+.twobtn {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.twobtn1 {
+    height: 37px;
+    width: 100px;
+    background: red;
+    border-radius: 14px;
+    border-color: red;
+    font-size: 16px;
+    font-style: inherit;
+
+
+}
+
+.playagain {
+    position: relative;
+    display: none;
+    right: 18%;
+}
+
+.play_Again {
+    height: 50px;
+    width: 147px;
+    background: red;
+    border-radius: 8px;
+    border-color: red;
+    font-size: 18px;
+    font-style: inherit;
+}
+
+#cancel {
+    height: 37px;
+    width: 100px;
+    background: green;
+    border-radius: 14px;
+    border-color: green;
+    font-size: 16px;
+    font-style: inherit;
+
+
+}
+
+.gamebar {
+    background: linear-gradient(50deg, #d2de78, #0ad684);
+    display: none;
+}
+
+#playerScore {
+    margin: 2px 2px 0px 4px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#computerScore {
+    margin: 2px 2px 0px 4px;
+    font-weight: bold;
+    font-size: 20px;
+}
